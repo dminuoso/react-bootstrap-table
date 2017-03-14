@@ -31,6 +31,9 @@ class ToolBar extends Component {
   }
 
   componentWillMount() {
+    /* Workaround for https://github.com/reactjs/react-modal/issues/133 */
+    Modal.setAppElement('body');
+
     const delay = this.props.searchDelayTime ? this.props.searchDelayTime : 0;
     this.debounceCallback = this.handleDebounce(() => {
       const { seachInput } = this.refs;
